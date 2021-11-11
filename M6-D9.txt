@@ -1,3 +1,40 @@
 MongoDb- Schema design 
+Relantionships & Cardinality 
 
+Front-end mockup //defining database 
+
+Advance queries
+Schema design 
+
+Importance of designing the Db
+
+Relational Vs Non Relational 
+
+Embedding Vs Referencing 
+
+Embedding 
+Pros
+
+Retrice all data with a single query
+Avoid expensive joins 
+Update all data with a single operation 
+
+Cons
+
+Large Docs => we send and retrive more data
+16MB document limit
+Duplication of data 
+
+Referencing 
+
+Pros
+
+Smaller docs 
+Don't reach 16 MB limit 
+No Duplication of data 
+Infrequently acced data not accesed on every query
+
+Cons
+
+Joins are slow 
 
