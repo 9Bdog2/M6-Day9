@@ -38,3 +38,13 @@ Cons
 
 Joins are slow 
 
+
+To link or to embed ? // What are the needs of your application 
+
+Relationships
+
+1-to-1
+1-to-many
+many-to-many
+
+
