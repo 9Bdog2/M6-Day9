@@ -30,20 +30,6 @@ const blogPostsSchema = new Schema(
         },
       },
     },
-    author: {
-      type: Object,
-      required: true,
-      nested: {
-        name: {
-          type: String,
-          required: true,
-        },
-        avatar: {
-          type: String,
-          required: true,
-        },
-      },
-    },
     content: {
       type: String,
       required: true,
@@ -56,6 +42,7 @@ const blogPostsSchema = new Schema(
         }),
       },
     ],
+    authors: { type: Schema.Types.ObjectId, ref: "Author" },
   },
   {
     timestamps: true,

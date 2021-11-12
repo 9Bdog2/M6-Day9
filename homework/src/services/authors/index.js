@@ -23,17 +23,54 @@ authorsRouter
     }
   });
 
-authorsRouter.get("/:authorId", async (req, res, next) => {
-  try {
-    const author = await AuthorModel.findById(req.params.authorId);
-    if (author) {
-      res.send(author);
-    } else {
-      next(createHttpError(404, `Author with ID ${req.params.authorId} found`));
+authorsRouter
+  .get("/:authorId", async (req, res, next) => {
+    try {
+      const author = await AuthorModel.findById(req.params.authorId);
+      if (author) {
+        res.send(author);
+      } else {
+        next(
+          createHttpError(404, `Author with ID ${req.params.authorId} found`)
+        );
+      }
+    } catch (error) {
+      next(error);
     }
-  } catch (error) {
-    next(error);
-  }
-});
+  })
+  .delete("/:authorId", async (req, res, next) => {
+    try {
+      const author = await AuthorModel.findByIdAndDelete(req.params.authorId);
+      if (author) {
+        res.send(author);
+      } else {
+        next(
+          createHttpError(404, `Author with ID ${req.params.authorId} found`)
+        );
+      }
+    } catch (error) {
+      next(error);
+    }
+  })
+  .put("/:authorId", async (req, res, next) => {
+    try {
+      const author = await AuthorModel.findByIdAndUpdate(
+        req.params.authorId,
+        req.body,
+        { new: true }
+      );
+      if (author) {
+        res.send(author);
+      } else {
+        next(
+          createHttpError(404, `Author with ID ${req.params.authorId} found`)
+        );
+      }
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  authorsRouter.post
 
 export default authorsRouter;

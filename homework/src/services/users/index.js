@@ -6,7 +6,9 @@ const blogRouter = express.Router();
 
 blogRouter.get("/", async (req, res, next) => {
   try {
-    const users = await blogPostModel.find();
+    const users = await blogPostModel
+      .find()
+      .populate({ path: "authors", select: "firstName lastName" });
     res.send(users);
   } catch (err) {
     next(err);
