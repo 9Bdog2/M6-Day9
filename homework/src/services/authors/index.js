@@ -71,6 +71,6 @@ authorsRouter
     }
   });
 
-  authorsRouter.post
+  
 
 export default authorsRouter;
